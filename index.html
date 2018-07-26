@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="application-name" content="snow white">
+<meta name="generator" content="wang pin">
+<meta name="description" content="OAuth github test">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="wang pin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--HTML4 charset def-->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!--HTML5 charset def-->
+<meta charset="UTF-8">
+<link rel="icon" href="/assets/icon.ico" type="image/x-icon">
+<title>OAuth github test</title>
+<style>
+ html, body, ul, ol, li {
+  margin: 0; /* Remove default margin */
+  padding: 0;
+ }
+
+ .login-container {
+   width: 320px;
+   margin: auto;
+   text-align: center;
+   vertical-align: middle;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ .login-container form {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ a#to-git {
+   cursor: pointer;
+   background: url(/github.png) no-repeat fixed center;
+ }
+</style>
+</head>
+<body>
+  
+  <div class="login-container">
+    <header>OAuth Github</header>
+    <form action="" method="">
+      <input type="text" placeholder="username" name="username" value=""/>
+      <input type="password" placeholder="password" name="password" value=""/>
+      <button>Login</button>
+    </form>
+    <footer>
+      <a href="javascript:void(0)" id="to-git">Use github account</a>
+    </footer>
+  </div>
+  
+</body>
+<script type="text/javascript">
+ var clientId = '7480d3802f0259608aec';
+ var redirectUrl = 'http://localhost:8080/callback.html';
+ var state = 'abc';
+ document.addEventListener('DOMContentLoaded', function(){
+  var authEndpoint = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUrl}`
+
+  document.querySelector('a#to-git').addEventListener('click', function() {
+    location.href = authEndpoint;
+  })
+ })
+</script>
+</html>
